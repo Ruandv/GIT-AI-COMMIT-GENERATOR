@@ -1,6 +1,6 @@
 {
   "name": "GIT-AI-COMMIT",
-  "version": "1.0.43",
+  "version": "1.0.48",
   "description": "A simple CLI for creating conventional commit messages",
   "private": true,
   "scripts": {
@@ -8,12 +8,12 @@
     "start:windows": "nodemon --watch 'src/**/*.ts' --exec \"npx ts-node\" src/index.ts",
     "create": "npm run build && npm run test",
     "build": "tsc -p .",
-    "local": "npm i -g && nsp",
+    "local": "npm i -g && git-ai",
     "package": "npm version patch --force && npm pack",
     "refresh": "npm run build && rm *.tgz && rm -rf ./node_modules ./package-lock.json && npm run package && npm install"
   },
   "bin": {
-    "nsp": "dist/index.js"
+    "git-ai": "dist/index.js"
   },
   "dependencies": {
     "boxen": "^7.1.1",
