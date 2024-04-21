@@ -20,8 +20,7 @@ const generateMessage = async (fileName: string) => {
     logger.info(chalk.greenBright(`\tprocessing... (${fileName})`));
 
     if (!fs.existsSync(envFilePath)) {
-        logger.info(chalk.redBright(`\t${fileName} not found in .diff`));
-        // use fs to ceate the folder structure
+        logger.info(chalk.redBright(`\t${fileName} not found in .diff`));        
         fs.mkdirSync(path.join(rootFolder, 'diff'), { recursive: true });
         fs.writeFileSync(envFilePath, 'no diff found');
     }

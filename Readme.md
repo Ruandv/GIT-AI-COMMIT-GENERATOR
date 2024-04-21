@@ -41,8 +41,6 @@ npm run package
 
 ## Commands
 
-The project provides several commands for managing .env files and secrets:
+The project provides one command at the moment for managing your conventional commit:
 
-- `init`: Initialize the project with some default .env and Secrets. See [`initCmd`](command:_github.copilot.openSymbolInFile?%5B%22src%2Fcommands%2Finit.ts%22%2C%22initCmd%22%5D "src/commands/init.ts").
-- `uninit`: Decommission the project by deleting all the defaults. See [`unInitCmd`](command:_github.copilot.openSymbolInFile?%5B%22src%2Fcommands%2Finit.ts%22%2C%22unInitCmd%22%5D "src/commands/init.ts").
 - `generate-commit`: Create an AI commit message. See [`generateCommitMessageCmd`](command:_github.copilot.openSymbolInFile?%5B%22src%2Fcommands%2FcommitMessage.ts%22%2C%22generateCommitMessageCmd%22%5D "src/commands/commitMessage.ts").
