@@ -4,21 +4,15 @@ import figlet from 'figlet';
 import dotenv from 'dotenv';
 
 import pkg from '../package.json';
-import { addEnvCmd, addSecretCmd, initCmd, removeEnvCmd, removeSecretCmd, unInitCmd } from './commands';
-import { generateCommitMessageCmd } from './commands/commitMessage';
+import { generateCommitMessageCmd } from './commands';
+import logger from './utility/logger';
 
 const myProgram = async () => {
   dotenv.config();
   let commands: Command[] = [];
-  commands.push(initCmd);
-  commands.push(unInitCmd);
-  commands.push(addSecretCmd);
-  commands.push(removeSecretCmd);
-  commands.push(addEnvCmd);
-  commands.push(removeEnvCmd);
   commands.push(generateCommitMessageCmd)
 
-  const program = new Command(); // Create a new
+  const program = new Command();
   program.version(pkg.version);
   program.description(pkg.description);
   program.name(pkg.name);
@@ -28,14 +22,14 @@ const myProgram = async () => {
   }
 
   const figletPromise = new Promise((resolve, reject) => {
-    figlet("Nintex CLI", (err, data) => {
+    figlet("GIT-AI CLI", (err, data) => {
       if (err) {
-        console.log("Something went wrong...");
-        console.dir(err);
+        logger.info("Something went wrong...");
+        logger.info(err);
         reject(err);
         return;
       }
-      console.log(data); 
+      logger.info(data); 
       resolve(data);
     });
   });

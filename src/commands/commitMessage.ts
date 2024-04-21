@@ -8,18 +8,19 @@ import path from 'path';
 import findRoots from '../utility/findRoots';
 import { Command, Argument } from 'commander';
 import AiService from '../services/ai-service';
+import logger from '../utility/logger'; // Import the logger module
 
 const generateMessage = async (fileName: string) => {
-    console.log(chalk.greenBright('Creating new commit message...'));
+    logger.info(chalk.greenBright('Creating new commit message...'));
     const service = AiService.getInstance();
 
     let currentDir = process.cwd();
     let rootFolder = await findRoots(currentDir);
     const envFilePath = path.join(rootFolder, 'diff', `${fileName}.diff`);
-    console.log(chalk.greenBright(`\tprocessing... (${fileName})`));
+    logger.info(chalk.greenBright(`\tprocessing... (${fileName})`));
 
     if (!fs.existsSync(envFilePath)) {
-        console.log(chalk.redBright(`\t${fileName} not found in .diff`));
+        logger.info(chalk.redBright(`\t${fileName} not found in .diff`));
         // use fs to ceate the folder structure
         fs.mkdirSync(path.join(rootFolder, 'diff'), { recursive: true });
         fs.writeFileSync(envFilePath, 'no diff found');
@@ -27,7 +28,7 @@ const generateMessage = async (fileName: string) => {
 
     const fileContent = fs.readFileSync(envFilePath, 'utf8');
     const res = await service.generateCommitMessage(fileContent);
-    console.log(chalk.cyanBright(`\t${res.message}`));
+    console.info(chalk.cyanBright(`\t${res.message}`));
     fs.writeFileSync(path.join(rootFolder, 'diff', `${fileName}.commit`), res.message);
     return res.message;
 }
