@@ -1,7 +1,3 @@
-// crawl up through the directory tree to find all the package.json files add them to an array
-// confirm with the user which level in the tree they want to create the .env file by listing the package.json directories
-// and create a .env file with the default values in the relevant directory that was selected by the user
-
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
