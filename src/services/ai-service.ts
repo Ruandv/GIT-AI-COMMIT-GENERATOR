@@ -3,7 +3,7 @@ import BaseHttp from "./baseHttp";
 // generate a service that will call the AI model to generate a commit message this must inherit from the baseHttp service
 export default class AiService {
     private static instance: AiService;
-    private static baseUrl = process.env.AI_SERVICE_URL || 'http://localhost:3002';
+    private static baseUrl = process.env.AI_SERVICE_URL;
     private static baseService: BaseHttp; 
 
     private constructor() {

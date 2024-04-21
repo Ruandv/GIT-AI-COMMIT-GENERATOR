@@ -1,6 +1,6 @@
 {
   "name": "git-ai-commit",
-  "version": "1.0.52",
+  "version": "1.0.53",
   "description": "A simple CLI for creating conventional commit messages",
   "private": true,
   "scripts": {

@@ -10,7 +10,9 @@ export default class BaseHttp {
         this.headers= headers
     }
   
-    static getInstance(baseUrl:string,headers:any): BaseHttp {
+    static getInstance(baseUrl?:string,headers?:any): BaseHttp {
+        if(!baseUrl) throw new Error('baseUrl is required');
+        
         if (!BaseHttp.instance) {
             BaseHttp.instance = new BaseHttp(baseUrl,headers);
         }

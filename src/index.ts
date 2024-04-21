@@ -38,3 +38,13 @@ const myProgram = async () => {
   program.parse();
 };
 myProgram();
+
+process.on('uncaughtException', (err) => {
+  logger.error('Uncaught Exception:', err);
+  process.exit(1); // Exit the process with an error code
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  logger.error('Unhandled Rejection at:', promise, 'reason:', reason);
+  process.exit(1); // Exit the process with an error code
+});
