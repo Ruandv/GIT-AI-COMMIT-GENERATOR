@@ -4,3 +4,4 @@ node_modules
 etc/**/*
 *.tgz
 diff/**/*
+*.log

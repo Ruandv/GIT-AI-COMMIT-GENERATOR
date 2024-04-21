@@ -29,7 +29,8 @@ const myProgram = async () => {
         reject(err);
         return;
       }
-      logger.info(data); 
+      console.log(data);
+      logger.info("Version: " + pkg.version)
       resolve(data);
     });
   });
@@ -38,13 +39,3 @@ const myProgram = async () => {
   program.parse();
 };
 myProgram();
-
-process.on('uncaughtException', (err) => {
-  logger.error('Uncaught Exception:', err);
-  process.exit(1); // Exit the process with an error code
-});
-
-process.on('unhandledRejection', (reason, promise) => {
-  logger.error('Unhandled Rejection at:', promise, 'reason:', reason);
-  process.exit(1); // Exit the process with an error code
-});

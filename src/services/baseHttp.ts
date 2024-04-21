@@ -1,3 +1,5 @@
+import MissingVariableException from "../exceptions/missingVariableException";
+
 // create a base HTTP service that can be used to make HTTP requests
 export default class BaseHttp {
     private static instance: BaseHttp;
@@ -11,7 +13,7 @@ export default class BaseHttp {
     }
   
     static getInstance(baseUrl?:string,headers?:any): BaseHttp {
-        if(!baseUrl) throw new Error('baseUrl is required');
+        if(!baseUrl) throw new MissingVariableException('AI_SERVICE_URL');
         
         if (!BaseHttp.instance) {
             BaseHttp.instance = new BaseHttp(baseUrl,headers);

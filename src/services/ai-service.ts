@@ -1,3 +1,5 @@
+
+import MissingVariableException from "../exceptions/missingVariableException";
 import BaseHttp from "./baseHttp";
 
 // generate a service that will call the AI model to generate a commit message this must inherit from the baseHttp service
@@ -8,7 +10,7 @@ export default class AiService {
 
     private constructor() {
         if (!process.env.AI_SERVICE_SECRET) {
-            throw new Error('AI_SERVICE_SECRET is not set');
+            throw new MissingVariableException('AI_SERVICE_SECRET');
         } 
 
         AiService.baseService = BaseHttp.getInstance(AiService.baseUrl, {
