@@ -44,3 +44,8 @@ npm run package
 The project provides one command at the moment for managing your conventional commit:
 
 - `generate-commit`: Create an AI commit message. See [`generateCommitMessageCmd`](command:_github.copilot.openSymbolInFile?%5B%22src%2Fcommands%2FcommitMessage.ts%22%2C%22generateCommitMessageCmd%22%5D "src/commands/commitMessage.ts").
+
+## NOTE: 
+make sure that the project that consumes the CLI has the following variables set
+    AI_SERVICE_URL=
+    AI_SERVICE_SECRET=

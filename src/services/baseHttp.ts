@@ -13,6 +13,7 @@ export default class BaseHttp {
     }
   
     static getInstance(baseUrl?:string,headers?:any): BaseHttp {
+        console.log("BASEURL IS: ", baseUrl)
         if(!baseUrl) throw new MissingVariableException('AI_SERVICE_URL');
         
         if (!BaseHttp.instance) {

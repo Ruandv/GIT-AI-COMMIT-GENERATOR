@@ -5,7 +5,6 @@ import BaseHttp from "./baseHttp";
 // generate a service that will call the AI model to generate a commit message this must inherit from the baseHttp service
 export default class AiService {
     private static instance: AiService;
-    private static baseUrl = process.env.AI_SERVICE_URL;
     private static baseService: BaseHttp; 
 
     private constructor() {
@@ -13,7 +12,7 @@ export default class AiService {
             throw new MissingVariableException('AI_SERVICE_SECRET');
         } 
 
-        AiService.baseService = BaseHttp.getInstance(AiService.baseUrl, {
+        AiService.baseService = BaseHttp.getInstance(process.env.AI_SERVICE_URL, {
             'Content-Type': 'application/json',
             'x-secret': process.env.AI_SERVICE_SECRET
         });

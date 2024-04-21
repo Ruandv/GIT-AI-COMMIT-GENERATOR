@@ -31,6 +31,7 @@ const myProgram = async () => {
       }
       console.log(data);
       logger.info("Version: " + pkg.version)
+      console.log(process.env.AI_SERVICE_URL)
       resolve(data);
     });
   });
